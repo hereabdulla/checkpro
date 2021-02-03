@@ -215,34 +215,35 @@
    "read_only": 1
   },
   {
-   "fetch_from": "epi_id.familiar_with_social_media",
+   "fetch_from": "epi.familiar_with_social_media",
    "fieldname": "epi_familiar_with_social_media",
    "fieldtype": "Data",
    "label": "EPI Familiar with Social Media",
    "read_only": 1
   },
   {
-   "fetch_from": "epi_id.types_of_social_media",
+   "fetch_from": "epi.types_of_social_media",
    "fieldname": "epi_types_of_social_media",
    "fieldtype": "Data",
    "label": "EPI Types of Social Media",
    "read_only": 1
   },
   {
-   "fetch_from": "epi_id.subject_interested",
+   "fetch_from": "epi.subject_interested",
    "fieldname": "epi_subject_interested",
    "fieldtype": "Data",
    "label": "EPI Subject Interested",
    "read_only": 1
   },
   {
-   "fetch_from": "epi_id.type_of_contacts",
+   "fetch_from": "epi.type_of_contacts",
    "fieldname": "epi_type_of_contacts",
    "fieldtype": "Data",
-   "label": "EPI Type of Contacts"
+   "label": "EPI Type of Contacts",
+   "read_only": 1
   },
   {
-   "fetch_from": "epi_id.additional_information",
+   "fetch_from": "epi.additional_information",
    "fieldname": "epi_additional_information",
    "fieldtype": "Small Text",
    "label": "EPI Additional Information",
@@ -254,7 +255,7 @@
   }
  ],
  "links": [],
- "modified": "2020-12-05 17:47:52.558482",
+ "modified": "2021-01-05 15:00:29.236758",
  "modified_by": "Administrator",
  "module": "Checkpro",
  "name": "Verify Social Media Check",

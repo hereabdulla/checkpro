@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_rename": 1,
  "autoname": "Case-.###.-.{case_name}",
  "creation": "2020-05-16 16:37:52.388181",
  "doctype": "DocType",
@@ -245,7 +246,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-12-09 12:22:47.443822",
+ "modified": "2021-01-08 11:29:36.978723",
  "modified_by": "Administrator",
  "module": "Checkpro",
  "name": "Case",

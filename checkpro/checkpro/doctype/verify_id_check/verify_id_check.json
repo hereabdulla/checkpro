@@ -505,58 +505,68 @@
    "options": "ID Check"
   },
   {
+   "fetch_from": "epi_id.aadhar_number",
    "fieldname": "epi_aadhar_number",
    "fieldtype": "Data",
    "label": "EPI Aadhar Number"
   },
   {
+   "fetch_from": "epi_id.name_1",
    "fieldname": "epi_name",
    "fieldtype": "Data",
    "label": "EPI Name "
   },
   {
+   "fetch_from": "epi_id.dob_1",
    "fieldname": "epi_dob",
    "fieldtype": "Data",
    "label": "EPI DOB"
   },
   {
+   "fetch_from": "epi_id.gender",
    "fieldname": "epi_gender",
    "fieldtype": "Data",
    "label": "EPI Gender"
   },
   {
+   "fetch_from": "epi_id.address_1",
    "fieldname": "epi_address",
    "fieldtype": "Data",
    "label": "EPI Address"
   },
   {
+   "fetch_from": "epi_id.additional_information_1",
    "fieldname": "epi_additional_information",
    "fieldtype": "Data",
    "label": "EPI Additional Information"
   },
   {
+   "fetch_from": "epi_id.first_name",
    "fieldname": "epi_first_name",
    "fieldtype": "Data",
    "label": "EPI First Name"
   },
   {
+   "fetch_from": "epi_id.last_name",
    "fieldname": "epi_last_name",
    "fieldtype": "Data",
    "label": "EPI Last Name"
   },
   {
+   "fetch_from": "epi_id.dob_6",
    "fieldname": "epi_pan_dob",
    "fieldtype": "Data",
    "label": "EPI PAN DOB"
   },
   {
+   "fetch_from": "epi_id.aadhar_number",
    "fieldname": "epi_pan_additional_information",
    "fieldtype": "Data",
    "label": "EPI PAN Additional Information"
   }
  ],
  "links": [],
- "modified": "2020-12-05 21:16:56.624989",
+ "modified": "2021-01-05 16:43:54.011880",
  "modified_by": "Administrator",
  "module": "Checkpro",
  "name": "Verify ID Check",

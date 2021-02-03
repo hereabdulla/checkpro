@@ -284,8 +284,7 @@
    "fetch_from": "entry_id.social_behaviour",
    "fieldname": "entry_social_behaviour",
    "fieldtype": "Data",
-   "label": "EPI Social Behaviour",
-   "read_only": 1
+   "label": "EPI Social Behaviour"
   },
   {
    "fetch_from": "entry_id.civil_magistrate_session_court_if_yes_the_reason",
@@ -342,7 +341,7 @@
   }
  ],
  "links": [],
- "modified": "2020-12-03 11:10:58.315172",
+ "modified": "2021-01-04 15:37:07.099467",
  "modified_by": "Administrator",
  "module": "Checkpro",
  "name": "Verify Court Record Check",

@@ -11,23 +11,20 @@ class Checks(Document):
         check = frappe.db.exists("DocType",self.check_name)
         if check:
             frappe.throw(self.check_name + ' ' + "already exists.")
-            # variable = frappe.get_doc("Doctype",self.check_name)
-            # frappe.errprint(variable)
         else:
             add_check = frappe.new_doc("DocType")
             add_check.name = self.check_name
             add_check.module = "Checkpro"
-            frappe.errprint("hi")
             add_check.autoname = self.check_name + '-.###'
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"CE TAT",
-            "read_only":1,
+            # "read_only":1,
             })
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Customer",
-            "read_only":1,
+            # "read_only":1,
             "in_standard_filter":1
             })
            
@@ -43,13 +40,13 @@ class Checks(Document):
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Check Package",
-            "read_only":1,
+            # "read_only":1,
             "in_standard_filter":1
             })
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Batch",
-            "read_only":1,
+            # "read_only":1,
             "in_standard_filter":1
             
             })
@@ -60,22 +57,22 @@ class Checks(Document):
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Case ID",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Case Name",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Date",
             "label":"Date of Birth",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Case Gender",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Column Break",
@@ -83,22 +80,22 @@ class Checks(Document):
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Father Name",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Contact Number",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Email ID",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Data",
             "label":"Client Employee Code",
-            "read_only":1
+            # "read_only":1
             })
             add_check.append("fields",{
             "fieldtype":"Section Break",
@@ -197,7 +194,7 @@ class Checks(Document):
             "read":1,
             })
             add_check.save(ignore_permissions=True)
-            
+            frappe.errprint(add_check)
         
 
         vcheck = frappe.db.exists("DocType",'Verify'+' '+self.check_name)
@@ -217,7 +214,7 @@ class Checks(Document):
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Customer",
-            "read_only":1,
+            # "read_only":1,
             "in_standard_filter":1
             })
             vadd_check.append("fields",{
@@ -231,13 +228,13 @@ class Checks(Document):
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Check Package",
-            "read_only":1,
+            # "read_only":1,
             "in_standard_filter":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Batch",
-            "read_only":1,
+            # "read_only":1,
             })
             vadd_check.append("fields",{
             "fieldtype":"Section Break",
@@ -246,22 +243,22 @@ class Checks(Document):
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Case ID",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Case Name",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Date",
             "label":"Date of Birth",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Case Gender",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Column Break",
@@ -269,22 +266,22 @@ class Checks(Document):
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Father Name",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Contact Number",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Email ID",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Data",
             "label":"Client Employee Code",
-            "read_only":1
+            # "read_only":1
             })
             vadd_check.append("fields",{
             "fieldtype":"Section Break",
@@ -335,7 +332,54 @@ class Checks(Document):
                         "options":c.options
                       
                     })
-              
+            vadd_check.append("fields",{
+            "fieldtype":"Column Break",
+            })  
+            for c in self.check_variables:
+                if c.variable_type=="Select":
+                     vadd_check.append("fields",{
+                        "fieldtype":"Select",
+                        "options":c.options,
+                        "label":'v_'+c.variable
+                    })
+                if c.variable_type=="Number":
+                    vadd_check.append("fields",{
+                        "fieldtype":"Int",
+                        "label":'v_'+c.variable
+                    })
+                if c.variable_type=="Description":
+                    vadd_check.append("fields",{
+                        "fieldtype":"Small Text",
+                        "label":'v_'+c.variable
+                    })
+                if c.variable_type=="Text":
+                    vadd_check.append("fields",{
+                	    "fieldtype":"Data",
+                	    "label":'v_'+c.variable
+                    })
+                if c.variable_type=="Date":
+                    vadd_check.append("fields",{
+                	    "fieldtype":"Date",
+                	    "label":'v_'+c.variable
+                    })
+                if c.variable_type=="Section":
+                    add_check.append("fields",{
+                	    "fieldtype":"Section Break",
+                        "label":'v_'+c.variable,
+                        
+                    })
+                if c.variable_type=="Column":
+                    add_check.append("fields",{
+                	    "fieldtype":"Column Break",
+                        "label":'v_'+c.variable,  
+                    })
+                if c.variable_type=="Link":
+                    add_check.append("fields",{
+                	    "fieldtype":"Link",
+                        "label":'v_'+c.variable,
+                        "options":c.options
+                      
+                    })
             vadd_check.append("fields",{
             "fieldtype":"Section Break",
             "label":"Verification Details"
@@ -389,6 +433,15 @@ class Checks(Document):
             })
             
             vadd_check.save(ignore_permissions=True)
+            def ():
+                frappe.errprint("called")
+                vpd = frappe.get_doc("Doctype",{"case_id":case_id})
+                epi = frappe.get_doc("Doctype",{"name":name})
+                vpd.update({
+                    "entry_social_behaviour": epi.social_behaviour
+                })
+                vpd.save(ignore_permissions=True)
+                frappe.db.commit()
 
         # # vcheck = frappe.db.exists("DocType",'Verify' + ' ' + checks.checks)
         # # if vcheck:

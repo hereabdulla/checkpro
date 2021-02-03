@@ -86,7 +86,7 @@ app_license = "MIT"
 # 		"on_trash": "method"
 #	}
 # }
-
+fixtures = ['Desk Page']
 # Scheduled Tasks
 # ---------------
 
